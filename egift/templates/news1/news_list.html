@@ -1,0 +1,31 @@
+ <link
+  rel = "stylesheet"
+  href = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"/>
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope = "col">ID</th>
+        <th scope = "col">TITLE</th>
+        <th scope = "col">DESCRIPTION</th>
+        <th scope = "col">PUBLISHDATE</th>
+        <th scope = "col">DELETE</th>
+        <th scope = "col">DETAIL</th>
+
+      </tr> 
+    </thead>
+    {% for i in news_list %}
+    <tbody>
+      <tr>
+        <th scope = "row">{{i.id}}</th> 
+        <td>{{i.news_title}}</td>
+        <td>{{i.news_description}}</td>
+        <td>{{i.news_date}}</td>
+        <td><a href = "{% url 'news_delete' i.pk%}">DELETE {{i.id}}</a></td>
+        <td><a href = "{% url 'news_details' i.pk%}">DETAIL {{i.id}}</a></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  
+  Logged in user = {{request.user}}
+   
